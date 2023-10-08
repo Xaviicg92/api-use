@@ -45,16 +45,14 @@
 
       function checkLoginState() {
         // Called when a person is finished with the Login Button.
-        FB.getLoginStatus(function (response) {
-          // See the onlogin handler
-          statusChangeCallback(response);
-        });
+        FB.getLoginStatus(
+          function (response) {
+            // See the onlogin handler
+            statusChangeCallback(response);
+          },
+          { scope: "public_profile,user_followers" }
+        );
       }
-
-      FB.getLoginStatus(function (response) {
-        // Called after the JS SDK has been initialized.
-        statusChangeCallback(response); // Returns the login status.
-      });
 
       function testAPI() {
         // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
