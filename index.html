@@ -45,13 +45,10 @@
 
       function checkLoginState() {
         // Called when a person is finished with the Login Button.
-        FB.getLoginStatus(
-          function (response) {
-            // See the onlogin handler
-            statusChangeCallback(response);
-          },
-          { scope: "public_profile,user_followers" }
-        );
+        FB.getLoginStatus(function (response) {
+          // See the onlogin handler
+          statusChangeCallback(response);
+        });
       }
 
       function testAPI() {
@@ -66,7 +63,7 @@
     </script>
 
     <fb:login-button
-      scope="public_profile,email,user_followers"
+      scope="public_profile,email"
       onlogin="checkLoginState();"
     ></fb:login-button>
 
