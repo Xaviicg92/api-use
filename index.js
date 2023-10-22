@@ -24,7 +24,8 @@
     console.log(response); // The current login status of the person.
     if (response.status === "connected") {
       // Logged into your webpage and Facebook.
-      testAPI();
+      document.getElementById("button").disabled = false;
+      //testAPI();
     } else {
       // Not logged into your webpage or we are unable to tell.
       document.getElementById("status").innerHTML =
