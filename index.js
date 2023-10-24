@@ -51,20 +51,29 @@
     });
   }
 
+  function getFollowers() {
+    FB.api('/me/friends', function(response) {
+      if (response && !response.error) {
+        var followers = response.data;
+        console.log(followers); // Puedes hacer lo que quieras con la lista de seguidores aquí
+      } else {
+        console.log('Error al obtener seguidores');
+      }
+    });
+  }
+
   function addPermisions() {
     FB.login(
       function (response) {
         console.log(response);
-        if (response.authResponse) {
-          console.log("El usuario autorizó la aplicación.");
-
-          // Aquí puedes hacer llamadas a la API de Graph para obtener información del usuario
+        if (response.status === 'connected') {
+          getFollowers();
         } else {
           console.log(
             "El usuario canceló el inicio de sesión o no autorizó la aplicación."
           );
         }
       },
-      { scope: "public_profile,user_followers" }
+      { scope: "public_profile,user_friends" }
     ); // Aquí se solicitan los permisos necesarios
   }
