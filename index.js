@@ -54,6 +54,7 @@
   function addPermisions() {
     FB.login(
       function (response) {
+        console.log(response);
         if (response.authResponse) {
           console.log("El usuario autorizó la aplicación.");
 
