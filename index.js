@@ -77,3 +77,4 @@
       { scope: "public_profile,user_friends" }
     ); // Aquí se solicitan los permisos necesarios
   }
+
