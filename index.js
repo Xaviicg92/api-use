@@ -67,7 +67,7 @@
           );
         }
       },
-      { scope: "public_profile,user_friends" }
+      { scope: "instagram_manage_insights" }
     ); // Aquí se solicitan los permisos necesarios
   }
 
